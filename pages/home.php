@@ -25,15 +25,15 @@
     <h2 class="section-title">Populaire auto's</h2>
     <div class="cars">
         <?php
-            $stmt = $conn->prepare("SELECT * from cars LIMIT 4");
-            $stmt->execute();
-            $data = $stmt->fetchAll();
+            $car = $conn->prepare("SELECT * from cars LIMIT 4");
+            $car->execute();
+            $data = $car->fetchAll();
 
             foreach($data as $car){
                 ?>
                 <div class="car-details">
                     <div class="car-brand">
-                        <h3><?php echo $car['brand'];?></h3>
+                        <h3><?= $car['brand'];?></h3>
                         <div class="car-type">
                             <?= $car['car-type'] ?>
                         </div>
@@ -45,38 +45,45 @@
                         <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
                     </div>
                     <div class="rent-details">
-                        <span><span class="font-weight-bold"><?= $car['price/day'] ?></span> / dag</span>
+                        <span><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</span>
                         <a href="/car-detail" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
                 <?php
             }
         ?>
-           
-        <?php ?>
     </div>
+
     <h2 class="section-title">Aanbevolen auto's</h2>
     <div class="cars">
-        <?php for ($i = 4; $i <= 11; $i++) : ?>
-            <div class="car-details">
-                <div class="car-brand">
-                    <h3>Koenigegg</h3>
-                    <div class="car-type">
-                        Sport
+        <?php 
+            $car = $conn->prepare("SELECT * from cars WHERE id > 4 LIMIT 8");
+            $car->execute();
+            $data = $car->fetchAll();
+
+            foreach($data as $car){ 
+                ?>
+                <div class="car-details">
+                    <div class="car-brand">
+                        <h3><?= $car['brand']?></h3>
+                        <div class="car-type">
+                            <?= $car['car-type'] ?>
+                        </div>
+                    </div>
+                    <img src='<?= $car['img'] ?>'>
+                    <div class="car-specification">
+                        <span><img src="assets/images/icons/gas-station.svg" alt=""><?= $car['gas-tank-volume'] ?></span>
+                        <span><img src="assets/images/icons/car.svg" alt=""><?= $car['gearbox'] ?></span>
+                        <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
+                    </div>
+                    <div class="rent-details">
+                        <span><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</span>
+                        <a href="/car-detail" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
-                <img src="assets/images/products/car%20(<?= $i ?>).svg" alt="">
-                <div class="car-specification">
-                    <span><img src="assets/images/icons/gas-station.svg" alt="">90l</span>
-                    <span><img src="assets/images/icons/car.svg" alt="">Schakel</span>
-                    <span><img src="assets/images/icons/profile-2user.svg" alt="">2 People</span>
-                </div>
-                <div class="rent-details">
-                    <span><span class="font-weight-bold">€249,00</span> / dag</span>
-                    <a href="/car-detail" class="button-primary">Bekijk nu</a>
-                </div>
-            </div>
-        <?php endfor; ?>
+                <?php
+            }
+        ?>
     </div>
     <div class="show-more">
         <a class="button-primary" href="#">Toon alle</a>
