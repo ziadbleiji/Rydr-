@@ -207,6 +207,7 @@ main {
 .advertorial .background-header-element {
   position: absolute;
   z-index: 0;
+  pointer-events: none;
 }
 
 footer {
@@ -393,6 +394,9 @@ footer .footer-links .links ul a {
 
 .car-detail .grid {
   gap: 50px;
+}
+.car-detail .advertorial .car-img {
+  min-height: 75%;
 }
 .car-detail .grid .car-type .row {
   display: flex;
