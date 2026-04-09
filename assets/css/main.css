@@ -396,7 +396,7 @@ footer .footer-links .links ul a {
   gap: 50px;
 }
 .car-detail .advertorial .car-img {
-  min-height: 75%;
+  min-width: 75%;
 }
 .car-detail .grid .car-type .row {
   display: flex;
@@ -481,6 +481,18 @@ footer .footer-links .links ul a {
 }
 .account-form label {
   margin-bottom: 1em;
+}
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  padding: 20px;
+  padding-right: 150px;
+  margin-right: 60px;
+  background-color: #ffffff;
+}
+.checkbox {
+  margin: 15px;
 }
 
 /*# sourceMappingURL=main.css.map */

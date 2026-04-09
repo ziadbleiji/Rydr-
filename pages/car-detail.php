@@ -30,18 +30,18 @@
             <div class="row white-background">
                 <h2><?= $car['brand'] ?></h2>    
                 <div class="rating">
-                    <span class="stars stars-4"></span>
-                    <span>440+ reviewers</span>
+                    <span class="<?= $car['stars'] ?>"></span>
+                    <span><?= $car['reviews'] ?></span>
                 </div>
                 <p>NISMO is het toonbeeld geworden van Nissan's uitzonderlijke prestaties, geïnspireerd door het meest meedogenloze testterrein: het circuit.</p>
                 <div class="car-type">
                     <div class="grid">
-                        <div class="row"><span class="accent-color">Type Car</span><span><?= $car['car-type'] ?></span></div>
+                        <div class="row"><span class="accent-color">Car Type</span><span><?= $car['car-type'] ?></span></div>
                         <div class="row"><span class="accent-color">Capacity</span><span><?= $car['seats'] ?></span></div>
                     </div>
                     <div class="grid">
-                        <div class="row"><span class="accent-color">Steering</span><span><?= $car['gearbox'] ?></span></div>
-                        <div class="row"><span class="accent-color">Gasoline</span><span><?= $car['gas-tank-volume'] ?></span></div>
+                        <div class="row"><span class="accent-color">Gearbox</span><span><?= $car['gearbox'] ?></span></div>
+                        <div class="row"><span class="accent-color">Fuel</span><span><?= $car['gas-tank-volume'] ?></span></div>
                     </div>
                     <div class="call-to-action">
                         <div class="row"><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</div>
