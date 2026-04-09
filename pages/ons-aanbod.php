@@ -1,6 +1,5 @@
 <?php require "includes/header.php" ?>
 <?php require "database/connection.php" ?>
-
 <div class="ons-aanbod">
     <div class="filter-bar">
         <h2>Filters</h2>
@@ -95,8 +94,19 @@
     <main>
         <div class="cars">
             <?php
+ 
+                if(isset($_GET['brand'])){
 
-                if(isset($_GET['cartype'],$_GET['seats'],$_GET['priceday'])){
+                    $brand = $_GET['brand'];
+
+                    $car = $conn->prepare("SELECT * FROM cars 
+                    WHERE brand = :b");
+                    $car->execute([
+                        "b" => $brand
+                    ]);
+                    $data = $car->fetchAll();
+
+                } else if(isset($_GET['cartype'],$_GET['seats'],$_GET['priceday'])){
 
                     $cartype = $_GET['cartype'];
                     $seats = $_GET['seats'];
@@ -141,7 +151,7 @@
                     $car = $conn->prepare("SELECT * FROM cars");
                     $car->execute();
                     $data = $car->fetchAll();
-                    }
+                }
 
                 foreach($data as $car){
                     ?>
