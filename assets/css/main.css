@@ -21,6 +21,7 @@ body {
 }
 
 main {
+  flex: 6;
   padding: 1em 4em;
 }
 
@@ -482,17 +483,44 @@ footer .footer-links .links ul a {
 .account-form label {
   margin-bottom: 1em;
 }
+.ons-aanbod {
+  display: flex;
+}
 .filter-bar {
   display: flex;
   flex-direction: column;
-  float: left;
+  flex: 1;
   padding: 20px;
-  padding-right: 150px;
+  padding-right: 50px;
   margin-right: 60px;
   background-color: #ffffff;
 }
 .checkbox {
-  margin: 15px;
+  margin: 10px;
 }
+.filter-option-1 label input[type="checkbox"] {
+  width: 1.4em;
+  height: 1.4em;
+  display: inline;
+  accent-color: #3563e9;
+}
+.filter-option-2 label input[type="checkbox"] {
+  width: 1.4em;
+  height: 1.4em;
+  display: inline;
+  accent-color: #3563e9;
+}
+.filter-option-3 label input[type="range"] {
+  width: 20em;
+  accent-color: #3563e9;
+}
+.checkbox input[type="submit"] {
+  color: white;
+  border-style: none;
+  padding: 0.8em;
+  border-radius: 0.5em;
+  background-color: #3563e9;
+}
+
 
 /*# sourceMappingURL=main.css.map */
