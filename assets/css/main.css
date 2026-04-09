@@ -21,7 +21,7 @@ body {
 }
 
 main {
-  flex: 6;
+  flex: 9;
   padding: 1em 4em;
 }
 
@@ -423,7 +423,7 @@ footer .footer-links .links ul a {
 
 .cars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 .cars .car-details {
@@ -491,8 +491,8 @@ footer .footer-links .links ul a {
   flex-direction: column;
   flex: 1;
   padding: 20px;
-  padding-right: 50px;
-  margin-right: 60px;
+  padding-right: 80px;
+  margin-right: 30px;
   background-color: #ffffff;
 }
 .checkbox {
@@ -511,7 +511,7 @@ footer .footer-links .links ul a {
   accent-color: #3563e9;
 }
 .filter-option-3 label input[type="range"] {
-  width: 20em;
+  width: 15em;
   accent-color: #3563e9;
 }
 .checkbox input[type="submit"] {

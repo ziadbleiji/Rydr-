@@ -8,41 +8,41 @@
             <div class="filter-option-1">
                 <p>Type</p>
                 <label>
-                    <input type="checkbox" name="brand" value="Hypercar">
+                    <input type="checkbox" name="cartype" value="Hypercar">
                     <?php 
-                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `car-type` = 'Hypercar'");
+                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `cartype` = 'Hypercar'");
                         $count->execute();
                         $count1 = $count->fetchAll(); ?>
                     Hypercar <?= "(" . $count1[0][0] . ")" ?>
                 </label><br><br>
                 <label>
-                    <input type="checkbox" name="brand" value="Supercar">
+                    <input type="checkbox" name="cartype" value="Supercar">
                     <?php 
-                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `car-type` = 'Supercar'");
+                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `cartype` = 'Supercar'");
                         $count->execute();
                         $count2 = $count->fetchAll(); ?>
                     Supercar <?= "(" . $count2[0][0] . ")" ?>
                 </label><br><br>
                 <label>
-                    <input type="checkbox" name="brand" value="Luxury">
+                    <input type="checkbox" name="cartype" value="Luxury">
                     <?php 
-                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `car-type` = 'Luxury'");
+                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `cartype` = 'Luxury'");
                         $count->execute();
                         $count3 = $count->fetchAll(); ?>
                     Luxury <?= "(" . $count3[0][0] . ")" ?>
                 </label><br><br>
                 <label>
-                    <input type="checkbox" name="brand" value="SUV">
+                    <input type="checkbox" name="cartype" value="SUV">
                     <?php 
-                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `car-type` = 'SUV'");
+                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `cartype` = 'SUV'");
                         $count->execute();
                         $count4 = $count->fetchAll(); ?>
                     SUV <?= "(" . $count4[0][0] . ")" ?>
                 </label><br><br>
                 <label>
-                    <input type="checkbox" name="brand" value="Hatchback">
+                    <input type="checkbox" name="cartype" value="Hatchback">
                     <?php 
-                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `car-type` = 'Hatchback'");
+                        $count = $conn->prepare("SELECT COUNT(*) FROM `cars` WHERE `cartype` = 'Hatchback'");
                         $count->execute();
                         $count5 = $count->fetchAll(); ?>
                     Hatchback <?= "(" . $count5[0][0] . ")" ?>
@@ -86,7 +86,7 @@
             <div class="filter-option-3">
                 <p>Price</p>
                 <label>
-                    <input type="range" name="price" min="0" max="300`">
+                    <input type="range" name="priceday" min="0" max="300" value="300">
                 </label><br><br>
             </div>
             <input type="submit">
@@ -95,9 +95,53 @@
     <main>
         <div class="cars">
             <?php
-                $car = $conn->prepare("SELECT * FROM cars");
-                $car->execute();
-                $data = $car->fetchAll();
+
+                if(isset($_GET['cartype'],$_GET['seats'],$_GET['priceday'])){
+
+                    $cartype = $_GET['cartype'];
+                    $seats = $_GET['seats'];
+                    $priceday = $_GET['priceday'];
+    
+                    $car = $conn->prepare("SELECT * FROM cars 
+                    WHERE cartype = :c AND seats = :s AND priceday < :p");
+                    $car->execute([
+                        "c" => $cartype,
+                        "s" => $seats,
+                        "p" => $priceday
+                    ]);
+                    $data = $car->fetchAll();
+
+                } else if(isset($_GET['cartype'],$_GET['priceday'])) {
+
+                    $cartype = $_GET['cartype'];
+                    $priceday = $_GET['priceday'];
+
+                    $car = $conn->prepare("SELECT * FROM cars 
+                    WHERE cartype = :c AND priceday < :p");
+                    $car->execute([
+                        "c" => $cartype,
+                        "p" => $priceday
+                    ]);
+                    $data = $car->fetchAll();
+
+                } else if(isset($_GET['seats'],$_GET['priceday'])){
+
+                    $seats = $_GET['seats'];
+                    $priceday = $_GET['priceday'];
+    
+                    $car = $conn->prepare("SELECT * FROM cars 
+                    WHERE seats = :s AND priceday < :p");
+                    $car->execute([
+                        "s" => $seats,
+                        "p" => $priceday
+                    ]);
+                    $data = $car->fetchAll();
+                    
+                } else {
+                    $car = $conn->prepare("SELECT * FROM cars");
+                    $car->execute();
+                    $data = $car->fetchAll();
+                    }
 
                 foreach($data as $car){
                     ?>
@@ -105,7 +149,7 @@
                         <div class="car-brand">
                             <h3><?= $car['brand'];?></h3>
                             <div class="car-type">
-                                <?= $car['car-type'] ?>
+                                <?= $car['cartype'] ?>
                             </div>
                         </div>
                         <img src='<?= $car['img'] ?>'>
@@ -115,7 +159,7 @@
                             <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
                         </div>
                         <div class="rent-details">
-                            <span><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</span>
+                            <span><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</span>
                             <a href="/car-detail/?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
                         </div>
                     </div>

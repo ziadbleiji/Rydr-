@@ -35,7 +35,7 @@
                     <div class="car-brand">
                         <h3><?= $car['brand'];?></h3>
                         <div class="car-type">
-                            <?= $car['car-type'] ?>
+                            <?= $car['cartype'] ?>
                         </div>
                     </div>
                     <img src='<?= $car['img'] ?>'>
@@ -45,7 +45,7 @@
                         <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
                     </div>
                     <div class="rent-details">
-                        <span><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</span>
+                        <span><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</span>
                         <a href="/car-detail/?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                     <div class="car-brand">
                         <h3><?= $car['brand']?></h3>
                         <div class="car-type">
-                            <?= $car['car-type'] ?>
+                            <?= $car['cartype'] ?>
                         </div>
                     </div>
                     <img src='<?= $car['img'] ?>'>
@@ -77,7 +77,7 @@
                         <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
                     </div>
                     <div class="rent-details">
-                        <span><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</span>
+                        <span><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</span>
                         <a href="/car-detail/?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
