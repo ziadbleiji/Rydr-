@@ -34,28 +34,28 @@
         ]);
         $data = $car->fetchAll();
 
+        ?><div class="cars"><?php
+
         foreach($data as $car){
-                    ?>
-                    <div class="cars">
-                        <div class="car-details">
-                            <div class="car-brand">
-                                <h3><?= $car['brand'];?></h3>
-                                <div class="car-type">
-                                    <?= $car['cartype'] ?>
-                                </div>
-                            </div>
-                            <img src='<?= $car['img'] ?>'>
-                            <div class="car-specification">
-                                <span><img src="assets/images/icons/gas-station.svg" alt=""><?= $car['gas-tank-volume'] ?></span>
-                                <span><img src="assets/images/icons/car.svg" alt=""><?= $car['gearbox'] ?></span>
-                                <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
-                            </div>
-                            <div class="rent-details">
-                                <span><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</span>
-                                <a href="/car-detail/?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
-                            </div>
-                        </div>
+            ?>
+            <div class="car-details">
+                <div class="car-brand">
+                    <h3><?= $car['brand'];?></h3>
+                    <div class="car-type">
+                        <?= $car['cartype'] ?>
                     </div>
+                </div>
+                <img src='<?= $car['img'] ?>'>
+                <div class="car-specification">
+                    <span><img src="assets/images/icons/gas-station.svg" alt=""><?= $car['gas-tank-volume'] ?></span>
+                    <span><img src="assets/images/icons/car.svg" alt=""><?= $car['gearbox'] ?></span>
+                    <span><img src="assets/images/icons/profile-2user.svg" alt=""><?= $car['seats'] ?></span>
+                </div>
+                <div class="rent-details">
+                    <span><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</span>
+                    <a href="/car-detail/?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
+                </div>
+            </div>                    
 <?php
         }
     } else {

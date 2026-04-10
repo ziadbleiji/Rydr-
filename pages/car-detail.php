@@ -36,7 +36,7 @@
                 <p>NISMO is het toonbeeld geworden van Nissan's uitzonderlijke prestaties, geïnspireerd door het meest meedogenloze testterrein: het circuit.</p>
                 <div class="car-type">
                     <div class="grid">
-                        <div class="row"><span class="accent-color">Car Type</span><span><?= $car['car-type'] ?></span></div>
+                        <div class="row"><span class="accent-color">Car Type</span><span><?= $car['cartype'] ?></span></div>
                         <div class="row"><span class="accent-color">Capacity</span><span><?= $car['seats'] ?></span></div>
                     </div>
                     <div class="grid">
@@ -44,7 +44,7 @@
                         <div class="row"><span class="accent-color">Fuel</span><span><?= $car['gas-tank-volume'] ?></span></div>
                     </div>
                     <div class="call-to-action">
-                        <div class="row"><span class="font-weight-bold">€<?= $car['price/day'] ?></span> / dag</div>
+                        <div class="row"><span class="font-weight-bold">€<?= $car['priceday'] ?></span> / dag</div>
                         <div class="row"><a href="" class="button-primary">Huur nu</a></div>
                     </div>
 

@@ -521,7 +521,7 @@ footer .footer-links .links ul a {
   border-radius: 0.5em;
   background-color: #3563e9;
 }
-.grid {
+.over-ons .grid {
   padding: 1em 4em 0 4em;
   display: flex;
   gap: 1em;
@@ -529,7 +529,7 @@ footer .footer-links .links ul a {
   overflow: hidden;
 }
 
-.row {
+.over-ons .row {
   flex: 1;
   background-color: #54A6FF;
   display: flex;
@@ -537,7 +537,7 @@ footer .footer-links .links ul a {
   flex-direction: column;
   border-radius: 10px;
 }
-.row h1 {
+.over-ons .row h1 {
   color: white;
   max-width: 50%;
   /* The Best Platform for Car Rental */
@@ -547,7 +547,7 @@ footer .footer-links .links ul a {
   color: #FFFFFF; /* Inside auto layout */
   margin: 0;
 }
-.row h2 {
+.over-ons .row h2 {
   color: white;
   /* The Best Platform for Car Rental */
   font-weight: 400;
@@ -556,11 +556,11 @@ footer .footer-links .links ul a {
   color: #FFFFFF; /* Inside auto layout */
   margin: 0;
 }
-.row p {
+.over-ons .row p {
   color: white;
   max-width: 95%;
 }
-.row img {
+.over-ons .row img {
   max-width: 100%;
   margin: 0 auto;
 }
