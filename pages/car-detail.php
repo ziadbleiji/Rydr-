@@ -30,8 +30,8 @@
             <div class="row white-background">
                 <h2><?= $car['brand'] ?></h2>    
                 <div class="rating">
-                    <span class="<?= $car['stars'] ?>"></span>
-                    <span><?= $car['reviews'] ?></span>
+                    <span class="stars stars-4"></span>
+                    <span>440+</span>
                 </div>
                 <p>NISMO is het toonbeeld geworden van Nissan's uitzonderlijke prestaties, geïnspireerd door het meest meedogenloze testterrein: het circuit.</p>
                 <div class="car-type">
